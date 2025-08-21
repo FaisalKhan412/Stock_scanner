@@ -229,7 +229,7 @@
         let categorySelected = false;
 
         function toggleDropdown() {
-            if (!categorySelected || document.querySelector('.container.active')) {
+            if (!categorySelected) {
                 dropdownOpen = !dropdownOpen;
                 document.querySelector('.dropdown').classList.toggle('active');
             }
@@ -305,11 +305,10 @@
             document.querySelectorAll('.container').forEach(container => container.classList.remove('active'));
             document.getElementById(type).classList.add('active');
             displayStocks(type);
-            if (!categorySelected) {
-                categorySelected = true;
-                document.getElementById('main-header').classList.add('category-selected');
-                document.getElementById('home-content').classList.add('hidden');
-            }
+            categorySelected = true;
+            document.getElementById('main-header').classList.add('category-selected');
+            document.getElementById('home-content').classList.add('hidden');
+            document.getElementById('dropdown-container').classList.add('hidden');
             const categoryNames = {
                 intraday: 'Intraday Trading',
                 swing: 'Swing Trading',
